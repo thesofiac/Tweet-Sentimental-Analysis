@@ -1,6 +1,6 @@
 import streamlit as st
 import joblib
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 # Carrega o modelo
 pipeline = joblib.load("final_model.pkl")
@@ -10,7 +10,7 @@ translator = Translator()
 
 # Função de classificação
 def classificar_texto_portugues(texto_pt):
-    traduzido = translator.translate(texto_pt, src='pt', dest='en').text
+    traduzido = GoogleTranslator(source='pt', target='en').translate(texto_pt)
     pred = pipeline.predict([traduzido])[0]
     prob = pipeline.predict_proba([traduzido])[0]
     return {
