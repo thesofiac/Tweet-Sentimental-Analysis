@@ -5,9 +5,6 @@ from deep_translator import GoogleTranslator
 # Carrega o modelo
 pipeline = joblib.load("final_model.pkl")
 
-# Instancia o tradutor
-translator = Translator()
-
 # Função de classificação
 def classificar_texto_portugues(texto_pt):
     traduzido = GoogleTranslator(source='pt', target='en').translate(texto_pt)
