@@ -3,7 +3,7 @@ import joblib
 from googletrans import Translator
 
 # Carrega o modelo
-pipeline = joblib.load("modelo_sentimento.pkl")
+pipeline = joblib.load("final_model.pkl")
 
 # Instancia o tradutor
 translator = Translator()
@@ -21,7 +21,7 @@ def classificar_texto_portugues(texto_pt):
     }
 
 # Interface no Streamlit
-st.title("Classificador de Sentimento 💬")
+st.title("Classificador de Sentimento")
 st.write("Digite um texto em português e veja se ele é positivo ou negativo.")
 
 input_texto = st.text_area("Seu texto aqui:", "")
